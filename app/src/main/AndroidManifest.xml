@@ -34,5 +34,13 @@
             android:name="riva.vincent.outerspacemanager.Building.BuildingActivity"
             android:label="Building" >
         </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Fleet.FleetActivity"
+            android:label="Fleet" >
+        </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Shipyard.ShipyardActivity"
+            android:label="Shipyard" >
+        </activity>
     </application>
 </manifest>

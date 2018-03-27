@@ -1,12 +1,10 @@
-package riva.vincent.outerspacemanager.Building;
-
+package riva.vincent.outerspacemanager.Fleet;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,14 +13,15 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import riva.vincent.outerspacemanager.Api.Responses.Models.Building;
+import riva.vincent.outerspacemanager.Api.Responses.Models.Fleet;
 import riva.vincent.outerspacemanager.R;
 
-public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapter.ViewHolder> {
+public class FleetListAdapter extends RecyclerView.Adapter<FleetListAdapter.ViewHolder> {
     private Context context;
-    private List<Building> values;
+    private List<Fleet> values;
     private static ClickListener clickListener;
 
-    public BuildingListAdapter(Context context, List<Building> values) {
+    public FleetListAdapter(Context context, List<Fleet> values) {
         this.context = context;
         this.values = values;
         Log.d("OuterSpace", "BuildingListAdapter: ij");
@@ -33,21 +32,19 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
         public TextView timeTextView;
         public TextView gasTextView;
         public TextView mineralsTextView;
-        public ImageView imageView;
         public ViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.buildingNameTextView);
             timeTextView = itemView.findViewById(R.id.timeTextView);
             gasTextView = itemView.findViewById(R.id.gasTextView);
             mineralsTextView = itemView.findViewById(R.id.mineralsTextView);
-            imageView = itemView.findViewById(R.id.imageView);
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            BuildingListAdapter.clickListener.onClick(getAdapterPosition(), v);
+            FleetListAdapter.clickListener.onClick(getAdapterPosition(), v);
         }
     }
 
@@ -67,24 +64,18 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Log.d("OuterSpace", "onBindViewHolder: Testing");
-        Building building = values.get(position);
+        Fleet building = values.get(position);
 
         TextView nameTextView = holder.nameTextView;
         TextView timeTextView = holder.timeTextView;
         TextView gasTextView = holder.gasTextView;
         TextView mineralsTextView = holder.mineralsTextView;
-        ImageView imageView = holder.imageView;
 
-        if(building.getBuilding()) {
-            nameTextView.setText(building.getName() + " (En cours)");
-        } else {
-            nameTextView.setText(building.getName() + " (Level " + building.getLevel() + ")");
-        }
-        timeTextView.setText((building.getTimeToBuildByLevel() * building.getLevel() + building.getTimeToBuildLevel0()) + " secondes");
-        gasTextView.setText("Gas: " + (building.getGasCostByLevel() * building.getLevel() + building.getGasCostLevel0()));
-        mineralsTextView.setText("Minerals: " + (building.getMineralCostByLevel() * building.getLevel() + building.getMineralCostLevel0()));
+        timeTextView.setText((building.getTimeToBuild()) + " secondes");
+        nameTextView.setText(building.getName());
+        gasTextView.setText("Gas: " + (building.getGasCost()));
+        mineralsTextView.setText("Minerals: " + (building.getMineralCost()));
 
-        Picasso.get().load(building.getImageUrl()).into(imageView);
     }
 
     @Override
@@ -93,12 +84,12 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
         return values.size();
     }
 
-    public void setValues(List<Building> buildings) {
+    public void setValues(List<Fleet> buildings) {
         this.values = buildings;
     }
 
     public void setOnClickListener(ClickListener clickListener) {
-        BuildingListAdapter.clickListener = clickListener;
+        FleetListAdapter.clickListener = clickListener;
     }
 
     public interface ClickListener {
