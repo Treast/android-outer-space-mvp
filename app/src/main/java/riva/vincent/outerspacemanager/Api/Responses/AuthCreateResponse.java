@@ -1,14 +1,14 @@
-package riva.vincent.outerspacemanager.Responses;
+package riva.vincent.outerspacemanager.Api.Responses;
 
 /**
  * Created by vriva on 26/03/2018.
  */
 
-public final class AuthCreate {
+public final class AuthCreateResponse {
     private String token;
     private double expires;
 
-    public AuthCreate(String token, double expires) {
+    public AuthCreateResponse(String token, double expires) {
         this.token = token;
         this.expires = expires;
     }

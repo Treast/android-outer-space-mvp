@@ -1,4 +1,4 @@
-package riva.vincent.outerspacemanager.Requests;
+package riva.vincent.outerspacemanager.Api.Requests;
 
 /**
  * Created by vriva on 26/03/2018.

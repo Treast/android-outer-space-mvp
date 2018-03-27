@@ -14,13 +14,25 @@
         android:theme="@style/AppTheme"
         >
         <activity
-            android:name="riva.vincent.outerspacemanager.SignUpActivity"
+            android:name="riva.vincent.outerspacemanager.SignUp.SignUpActivity"
             android:label="Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category
                     android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Login.LoginActivity"
+            android:label="Login" >
+        </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Main.MainActivity"
+            android:label="Main" >
+        </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Building.BuildingActivity"
+            android:label="Building" >
         </activity>
     </application>
 </manifest>
