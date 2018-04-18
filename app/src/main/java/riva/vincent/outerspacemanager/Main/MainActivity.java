@@ -5,11 +5,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import riva.vincent.outerspacemanager.Api.Api;
+import riva.vincent.outerspacemanager.Api.Requests.DeviceAddRequest;
+import riva.vincent.outerspacemanager.Api.Responses.SearchCreateResponse;
+import riva.vincent.outerspacemanager.Api.Responses.UsersGetResponse;
 import riva.vincent.outerspacemanager.Building.BuildingActivity;
 import riva.vincent.outerspacemanager.Building.Fragments.BuildingMain;
 import riva.vincent.outerspacemanager.Fleet.FleetActivity;
@@ -27,6 +36,11 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
     private TextView usernameTextView;
     private TextView pointsTextView;
 
+    private TextView gasTextView;
+    private TextView mineralsTextView;
+    private TextView gasModifierTextView;
+    private TextView mineralsModifierTextView;
+
     private Button buildingButton;
     private Button fleetButton;
     private Button shipyardButton;
@@ -41,6 +55,11 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
 
         usernameTextView = findViewById(R.id.usernameTextView);
         pointsTextView = findViewById(R.id.pointsTextView);
+
+        gasTextView = findViewById(R.id.gasTextView);
+        mineralsTextView = findViewById(R.id.mineralsTextView);
+        gasModifierTextView = findViewById(R.id.gasModifierTextView);
+        mineralsModifierTextView = findViewById(R.id.mineralsModifierTextView);
 
         presenter.getCurrentUser(getToken());
 
@@ -61,9 +80,13 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
     }
 
     @Override
-    public void updateCurrentUserInformations(String username, Long points) {
+    public void updateCurrentUserInformations(String username, Long points, float gas, float minerals, float gasModifier, float mineralsModifier) {
         usernameTextView.setText(username);
         pointsTextView.setText("Points: " + points.toString());
+        gasTextView.setText("Gas: " + String.valueOf(Math.round(gas)));
+        mineralsTextView.setText("Minerals: " + String.valueOf(Math.round(minerals)));
+        gasModifierTextView.setText("Gas: " + String.valueOf(Math.round(gas)) + "/h");
+        mineralsModifierTextView.setText("Minerals : " + String.valueOf(Math.round(minerals)) + "/h");
     }
 
     @Override

@@ -8,6 +8,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import riva.vincent.outerspacemanager.Api.Requests.AuthCreateRequest;
 import riva.vincent.outerspacemanager.Api.Requests.AuthLoginRequest;
+import riva.vincent.outerspacemanager.Api.Requests.DeviceAddRequest;
 import riva.vincent.outerspacemanager.Api.Requests.ShipAttackRequest;
 import riva.vincent.outerspacemanager.Api.Requests.ShipCreateRequest;
 import riva.vincent.outerspacemanager.Api.Responses.AuthCreateResponse;
@@ -60,4 +61,7 @@ public interface ApiService {
 
     @POST("api/v1/fleet/attack/{userName}")
     Call<ShipAttackResponse> shipAttack(@Header("x-access-token") String token, @Path("userName") String userName, @Body ShipAttackRequest shipAttackRequest);
+
+    @POST("api/v1/devices/add")
+    Call<SearchCreateResponse> deviceAdd(@Header("x-access-token") String token, @Body DeviceAddRequest deviceAddRequest);
 }

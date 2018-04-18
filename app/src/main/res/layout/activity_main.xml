@@ -20,6 +20,53 @@
         android:text="Points : 0"
         android:textAlignment="center" />
 
+    <LinearLayout
+        android:id="@+id/gas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mineralsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Minerals: 0"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/gasTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gas: 0"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mineralsModifierTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Minerals: 0"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/gasModifierTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gas: 0"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/overviewButton"
         android:layout_width="match_parent"
@@ -68,4 +115,5 @@
         android:background="@android:color/transparent"
         android:text="Galaxie"
         android:textSize="18sp" />
+
 </LinearLayout>

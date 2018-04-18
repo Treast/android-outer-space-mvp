@@ -35,7 +35,7 @@ public class SearchActivity extends Activity implements SearchView {
     private SearchPresenter presenter;
     private List<Search> searchesList;
     private SearchListAdapter adapter;
-    private Handler handler;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,8 +92,13 @@ public class SearchActivity extends Activity implements SearchView {
     @Override
     protected void onStart() {
         super.onStart();
-        handler = new Handler();
         handler.postDelayed(runnable, 1000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
     }
 
     private void updateChanges() {

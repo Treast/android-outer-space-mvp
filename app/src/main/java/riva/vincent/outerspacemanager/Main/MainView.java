@@ -5,7 +5,7 @@ package riva.vincent.outerspacemanager.Main;
  */
 
 public interface MainView {
-    void updateCurrentUserInformations(String username, Long points);
+    void updateCurrentUserInformations(String username, Long points, float gas, float minerals, float gasModifier, float mineralsModifier);
 
     void showToastFailure();
 }

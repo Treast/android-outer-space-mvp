@@ -66,7 +66,7 @@ public class FragmentDetail extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Oui",new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ((BuildingMain)getActivity()).createBuilding(building);
+                                ((BuildingDetail)getActivity()).createBuilding(building);
                             }
                         })
                         .setNegativeButton("Annuler",new DialogInterface.OnClickListener() {

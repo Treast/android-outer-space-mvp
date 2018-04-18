@@ -30,7 +30,7 @@ public class MainPresenterImpl implements MainPresenter {
                 Log.d("OuterSpace", "onResponse: " + response);
                 Log.d("OuterSpace", "currentToken: " + token);
                 if(response.body() != null) {
-                    mainView.updateCurrentUserInformations(response.body().getUsername(), response.body().getPoints());
+                    mainView.updateCurrentUserInformations(response.body().getUsername(), response.body().getPoints(), response.body().getGas(), response.body().getMinerals(), response.body().getGasModifier(), response.body().getMineralsModifier());
                 }
             }
 
