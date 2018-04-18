@@ -14,6 +14,7 @@ import riva.vincent.outerspacemanager.Building.BuildingActivity;
 import riva.vincent.outerspacemanager.Building.Fragments.BuildingMain;
 import riva.vincent.outerspacemanager.Fleet.FleetActivity;
 import riva.vincent.outerspacemanager.R;
+import riva.vincent.outerspacemanager.Search.SearchActivity;
 import riva.vincent.outerspacemanager.Shipyard.ShipyardActivity;
 
 /**
@@ -29,7 +30,7 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
     private Button buildingButton;
     private Button fleetButton;
     private Button shipyardButton;
-
+    private Button searchButton;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +47,12 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
         buildingButton = findViewById(R.id.buildingButton);
         fleetButton = findViewById(R.id.fleetButton);
         shipyardButton = findViewById(R.id.shipyardButton);
+        searchButton = findViewById(R.id.researchButton);
 
         buildingButton.setOnClickListener(this);
         fleetButton.setOnClickListener(this);
         shipyardButton.setOnClickListener(this);
+        searchButton.setOnClickListener(this);
     }
 
     private String getToken() {
@@ -82,6 +85,10 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
             case R.id.shipyardButton:
                 Intent intentFleet = new Intent(getApplicationContext(), ShipyardActivity.class);
                 startActivity(intentFleet);
+                break;
+            case R.id.researchButton:
+                Intent intentSearch = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intentSearch);
                 break;
         }
     }

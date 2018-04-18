@@ -11,7 +11,7 @@ import riva.vincent.outerspacemanager.Api.Requests.Models.ShipAmount;
 public interface ShipyardPresenter {
 
     void getFleet(String token);
-    void createShip(String token, Integer shipId);
+    void createShip(String token, Integer shipId,  Integer amount);
     void attackUser(String token, String username, List<ShipAmount> ships);
 
 }

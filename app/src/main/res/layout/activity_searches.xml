@@ -3,26 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
-        android:id="@+id/fleetTextView"
+        android:id="@+id/searchTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chantier spatial "
+        android:text="Recherches"
         android:textAlignment="center"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/attackButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="5dp"
-        android:text="Attaquer" />
-
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/fleetRecyclerView"
+        android:id="@+id/searchRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-    </android.support.v7.widget.RecyclerView>
-
+        android:layout_height="match_parent" />
 </LinearLayout>

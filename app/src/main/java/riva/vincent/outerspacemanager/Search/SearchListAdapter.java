@@ -1,4 +1,4 @@
-package riva.vincent.outerspacemanager.Building;
+package riva.vincent.outerspacemanager.Search;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,14 +14,15 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import riva.vincent.outerspacemanager.Api.Responses.Models.Building;
+import riva.vincent.outerspacemanager.Api.Responses.Models.Search;
 import riva.vincent.outerspacemanager.R;
 
-public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapter.ViewHolder> {
+public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.ViewHolder> {
     private Context context;
-    private List<Building> values;
+    private List<Search> values;
     private static ClickListener clickListener;
 
-    public BuildingListAdapter(Context context, List<Building> values) {
+    public SearchListAdapter(Context context, List<Search> values) {
         this.context = context;
         this.values = values;
         Log.d("OuterSpace", "SearchListAdapter: ij");
@@ -33,21 +33,19 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
         public TextView timeTextView;
         public TextView gasTextView;
         public TextView mineralsTextView;
-        public ImageView imageView;
         public ViewHolder(View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.buildingNameTextView);
+            nameTextView = itemView.findViewById(R.id.searchNameTextView);
             timeTextView = itemView.findViewById(R.id.timeTextView);
             gasTextView = itemView.findViewById(R.id.gasTextView);
             mineralsTextView = itemView.findViewById(R.id.mineralsTextView);
-            imageView = itemView.findViewById(R.id.imageView);
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            BuildingListAdapter.clickListener.onClick(getAdapterPosition(), v);
+            SearchListAdapter.clickListener.onClick(getAdapterPosition(), v);
         }
     }
 
@@ -57,7 +55,7 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.row_building, parent, false);
+        View contactView = inflater.inflate(R.layout.row_search, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
@@ -66,25 +64,22 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Log.d("OuterSpace", "onBindViewHolder: Testing");
-        Building building = values.get(position);
+        Search search = values.get(position);
+        Log.d("OuterSpace", "onBindViewHolder: Testing: " + search.getName());
 
         TextView nameTextView = holder.nameTextView;
         TextView timeTextView = holder.timeTextView;
         TextView gasTextView = holder.gasTextView;
         TextView mineralsTextView = holder.mineralsTextView;
-        ImageView imageView = holder.imageView;
 
-        if(building.getBuilding()) {
-            nameTextView.setText(building.getName() + " (En cours)");
+        if(search.getBuilding()) {
+            nameTextView.setText(search.getName() + " (En cours)");
         } else {
-            nameTextView.setText(building.getName() + " (Level " + building.getLevel() + ")");
+            nameTextView.setText(search.getName() + " (Level " + search.getLevel() + ")");
         }
-        timeTextView.setText((building.getTimeToBuildByLevel() * building.getLevel() + building.getTimeToBuildLevel0()) + " secondes");
-        gasTextView.setText("Gas: " + (building.getGasCostByLevel() * building.getLevel() + building.getGasCostLevel0()));
-        mineralsTextView.setText("Minerals: " + (building.getMineralCostByLevel() * building.getLevel() + building.getMineralCostLevel0()));
-
-        Picasso.get().load(building.getImageUrl()).into(imageView);
+        timeTextView.setText((search.getTimeToBuildByLevel() * search.getLevel() + search.getTimeToBuildLevel0()) + " secondes");
+        gasTextView.setText("Gas: " + (search.getGasCostByLevel() * search.getLevel() + search.getGasCostLevel0()));
+        mineralsTextView.setText("Minerals: " + (search.getMineralCostByLevel() * search.getLevel() + search.getMineralCostLevel0()));
     }
 
     @Override
@@ -93,12 +88,12 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
         return values.size();
     }
 
-    public void setValues(List<Building> buildings) {
+    public void setValues(List<Search> buildings) {
         this.values = buildings;
     }
 
     public void setOnClickListener(ClickListener clickListener) {
-        BuildingListAdapter.clickListener = clickListener;
+        SearchListAdapter.clickListener = clickListener;
     }
 
     public interface ClickListener {

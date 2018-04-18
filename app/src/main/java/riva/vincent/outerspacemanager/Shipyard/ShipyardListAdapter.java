@@ -25,7 +25,7 @@ public class ShipyardListAdapter extends RecyclerView.Adapter<ShipyardListAdapte
     public ShipyardListAdapter(Context context, List<Ship> values) {
         this.context = context;
         this.values = values;
-        Log.d("OuterSpace", "BuildingListAdapter: ij");
+        Log.d("OuterSpace", "SearchListAdapter: ij");
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -1,5 +1,6 @@
 package riva.vincent.outerspacemanager.Shipyard;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -52,9 +53,9 @@ public class ShipyardPresenterImpl implements ShipyardPresenter {
     }
 
     @Override
-    public void createShip(String token, Integer shipId) {
+    public void createShip(String token, Integer shipId, Integer amount) {
 
-        Call<ShipCreateResponse> buildingCreate = Api.getInstance().shipCreate(token, shipId, new ShipCreateRequest(shipId, 1));
+        Call<ShipCreateResponse> buildingCreate = Api.getInstance().shipCreate(token, shipId, new ShipCreateRequest(shipId, amount));
 
         buildingCreate.enqueue(new Callback<ShipCreateResponse>() {
             @Override
@@ -81,7 +82,9 @@ public class ShipyardPresenterImpl implements ShipyardPresenter {
             public void onResponse(Call<ShipAttackResponse> call, Response<ShipAttackResponse> response) {
                 if(response.body() != null) {
                     //buildingView.displayFleetInTheListView(response.body().getShips());
+                    buildingView.showSuccessAttack(response.body().getCode(), response.body().getAttackTime());
                 }
+                Log.d("OuterSpace", "onResponse: response null ");
             }
 
             @Override

@@ -10,6 +10,7 @@ import riva.vincent.outerspacemanager.Api.Responses.Models.Ship;
 
 public interface ShipyardView {
     void showToastFailure();
+    void showSuccessAttack(String code, double time);
 
     void displayFleetInTheListView(List<Ship> buildings);
 }

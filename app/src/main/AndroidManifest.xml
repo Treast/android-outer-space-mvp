@@ -50,5 +50,9 @@
             android:name="riva.vincent.outerspacemanager.Building.Fragments.BuildingDetail"
             android:label="BuildingDetail" >
         </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Search.SearchActivity"
+            android:label="Search" >
+        </activity>
     </application>
 </manifest>

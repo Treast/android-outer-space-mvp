@@ -16,6 +16,8 @@ import riva.vincent.outerspacemanager.Api.Responses.BuildingCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.BuildingListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.FleetListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.MyShipsResponse;
+import riva.vincent.outerspacemanager.Api.Responses.SearchCreateResponse;
+import riva.vincent.outerspacemanager.Api.Responses.SearchListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipAttackResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.UsersGetResponse;
@@ -43,6 +45,12 @@ public interface ApiService {
     @GET("api/v1/fleet/list")
     Call<MyShipsResponse> getShipList(@Header("x-access-token") String token);
 
+    @GET("api/v1/searches/list")
+    Call<SearchListResponse> getSearchList(@Header("x-access-token") String token);
+
+    @POST("api/v1/searches/create/{searchId}")
+    Call<SearchCreateResponse> searchCreate(@Header("x-access-token") String token, @Path("searchId") Integer searchId);
+
     @POST("api/v1/buildings/create/{buildingId}")
     Call<BuildingCreateResponse> buildingCreate(@Header("x-access-token") String token, @Path("buildingId") Integer buildingId);
 
@@ -51,5 +59,5 @@ public interface ApiService {
 
 
     @POST("api/v1/fleet/attack/{userName}")
-    Call<ShipAttackResponse> shipAttack(@Header("x-access-token") String token, @Path("shipId") String userName, @Body ShipAttackRequest shipAttackRequest);
+    Call<ShipAttackResponse> shipAttack(@Header("x-access-token") String token, @Path("userName") String userName, @Body ShipAttackRequest shipAttackRequest);
 }
