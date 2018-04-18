@@ -23,8 +23,8 @@ import riva.vincent.outerspacemanager.R;
 
 public class BuildingActivity extends Activity implements BuildingView {
 
-    private BuildingPresenter presenter;
     private RecyclerView buildingListView;
+    private BuildingPresenter presenter;
     private List<Building> buildingList;
     private BuildingListAdapter adapter;
 

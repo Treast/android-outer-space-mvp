@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import riva.vincent.outerspacemanager.Api.Api;
 import riva.vincent.outerspacemanager.Building.BuildingActivity;
+import riva.vincent.outerspacemanager.Building.Fragments.BuildingMain;
 import riva.vincent.outerspacemanager.Fleet.FleetActivity;
 import riva.vincent.outerspacemanager.R;
 import riva.vincent.outerspacemanager.Shipyard.ShipyardActivity;
@@ -71,7 +72,7 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buildingButton:
-                Intent intent = new Intent(getApplicationContext(), BuildingActivity.class);
+                Intent intent = new Intent(getApplicationContext(), BuildingMain.class);
                 startActivity(intent);
                 break;
             case R.id.fleetButton:

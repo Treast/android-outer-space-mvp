@@ -30,10 +30,10 @@
             android:name="riva.vincent.outerspacemanager.Main.MainActivity"
             android:label="Main" >
         </activity>
-        <activity
+        <!--<activity
             android:name="riva.vincent.outerspacemanager.Building.BuildingActivity"
             android:label="Building" >
-        </activity>
+        </activity>-->
         <activity
             android:name="riva.vincent.outerspacemanager.Fleet.FleetActivity"
             android:label="Fleet" >
@@ -41,6 +41,14 @@
         <activity
             android:name="riva.vincent.outerspacemanager.Shipyard.ShipyardActivity"
             android:label="Shipyard" >
+        </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Building.Fragments.BuildingMain"
+            android:label="Building" >
+        </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.Building.Fragments.BuildingDetail"
+            android:label="BuildingDetail" >
         </activity>
     </application>
 </manifest>

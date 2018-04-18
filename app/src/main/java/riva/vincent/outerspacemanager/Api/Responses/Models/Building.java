@@ -149,4 +149,12 @@ public class Building {
     public void setTimeToBuildLevel0(Integer timeToBuildLevel0) {
         this.timeToBuildLevel0 = timeToBuildLevel0;
     }
+
+    public int getTotalTime() {
+        return this.getTimeToBuildLevel0() + this.getLevel() * this.getTimeToBuildByLevel();
+    }
+
+    public int getTotalAmount() {
+        return this.getAmountOfEffectLevel0() + this.getLevel() * this.getAmountOfEffectByLevel();
+    }
 }
