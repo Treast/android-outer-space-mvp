@@ -8,6 +8,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import riva.vincent.outerspacemanager.Api.Requests.AuthCreateRequest;
 import riva.vincent.outerspacemanager.Api.Requests.AuthLoginRequest;
+import riva.vincent.outerspacemanager.Api.Requests.ShipAttackRequest;
 import riva.vincent.outerspacemanager.Api.Requests.ShipCreateRequest;
 import riva.vincent.outerspacemanager.Api.Responses.AuthCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.AuthLoginResponse;
@@ -15,6 +16,7 @@ import riva.vincent.outerspacemanager.Api.Responses.BuildingCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.BuildingListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.FleetListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.MyShipsResponse;
+import riva.vincent.outerspacemanager.Api.Responses.ShipAttackResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.UsersGetResponse;
 
@@ -46,4 +48,8 @@ public interface ApiService {
 
     @POST("api/v1/ships/create/{shipId}")
     Call<ShipCreateResponse> shipCreate(@Header("x-access-token") String token, @Path("shipId") Integer shipId, @Body ShipCreateRequest shipCreateRequest);
+
+
+    @POST("api/v1/fleet/attack/{userName}")
+    Call<ShipAttackResponse> shipAttack(@Header("x-access-token") String token, @Path("shipId") String userName, @Body ShipAttackRequest shipAttackRequest);
 }

@@ -1,29 +1,20 @@
 package riva.vincent.outerspacemanager.Building.Fragments;
 
-import android.app.AlertDialog;
-import android.support.v4.app.Fragment;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import riva.vincent.outerspacemanager.Api.Api;
 import riva.vincent.outerspacemanager.Api.Responses.Models.Building;
-import riva.vincent.outerspacemanager.Building.BuildingActivity;
 import riva.vincent.outerspacemanager.Building.BuildingListAdapter;
-import riva.vincent.outerspacemanager.Building.BuildingPresenter;
-import riva.vincent.outerspacemanager.Building.BuildingPresenterImpl;
-import riva.vincent.outerspacemanager.Building.BuildingView;
 import riva.vincent.outerspacemanager.R;
 
 public class FragmentList extends Fragment {

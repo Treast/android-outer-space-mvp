@@ -11,9 +11,18 @@
         android:textAlignment="center"
         android:textSize="30sp" />
 
+    <Button
+        android:id="@+id/attackButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Attquer"
+        android:layout_marginVertical="5dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fleetRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

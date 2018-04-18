@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class ShipyardActivity extends Activity implements ShipyardView {
     private RecyclerView fleetListView;
     private List<Ship> buildingList;
     private ShipyardListAdapter adapter;
+    private Button attackButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class ShipyardActivity extends Activity implements ShipyardView {
         buildingList = new ArrayList<>();
 
         fleetListView = findViewById(R.id.fleetRecyclerView);
+        attackButton = findViewById(R.id.attackButton);
 
         adapter = new ShipyardListAdapter(getApplicationContext(), buildingList);
         fleetListView.setAdapter(adapter);
@@ -74,6 +77,13 @@ public class ShipyardActivity extends Activity implements ShipyardView {
 
                 // show it
                 alertDialog.show();
+            }
+        });
+
+        attackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

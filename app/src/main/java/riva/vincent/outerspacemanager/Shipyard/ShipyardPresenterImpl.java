@@ -1,15 +1,20 @@
 package riva.vincent.outerspacemanager.Shipyard;
 import android.util.Log;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import riva.vincent.outerspacemanager.Api.Api;
+import riva.vincent.outerspacemanager.Api.Requests.Models.ShipAmount;
+import riva.vincent.outerspacemanager.Api.Requests.ShipAttackRequest;
 import riva.vincent.outerspacemanager.Api.Requests.ShipCreateRequest;
 import riva.vincent.outerspacemanager.Api.Responses.BuildingCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.BuildingListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.FleetListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.MyShipsResponse;
+import riva.vincent.outerspacemanager.Api.Responses.ShipAttackResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipCreateResponse;
 
 /**
@@ -62,6 +67,25 @@ public class ShipyardPresenterImpl implements ShipyardPresenter {
 
             @Override
             public void onFailure(Call<ShipCreateResponse> call, Throwable t) {
+                buildingView.showToastFailure();
+            }
+        });
+    }
+
+    @Override
+    public void attackUser(String token, String username, List<ShipAmount> ships) {
+        Call<ShipAttackResponse> shipAttack = Api.getInstance().shipAttack(token, username, new ShipAttackRequest(ships));
+
+        shipAttack.enqueue(new Callback<ShipAttackResponse>() {
+            @Override
+            public void onResponse(Call<ShipAttackResponse> call, Response<ShipAttackResponse> response) {
+                if(response.body() != null) {
+                    //buildingView.displayFleetInTheListView(response.body().getShips());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ShipAttackResponse> call, Throwable t) {
                 buildingView.showToastFailure();
             }
         });
