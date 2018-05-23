@@ -24,7 +24,6 @@ public class FleetListAdapter extends RecyclerView.Adapter<FleetListAdapter.View
     public FleetListAdapter(Context context, List<Fleet> values) {
         this.context = context;
         this.values = values;
-        Log.d("OuterSpace", "SearchListAdapter: ij");
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
