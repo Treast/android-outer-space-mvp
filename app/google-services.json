@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "639076744093",
+    "firebase_url": "https://outerspacemanager.firebaseio.com",
+    "project_id": "outerspacemanager",
+    "storage_bucket": "outerspacemanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639076744093:android:adc4ab483abdcfee",
+        "android_client_info": {
+          "package_name": "riva.vincent.outerspacemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639076744093-tih3dk901q6sppl53r5bi4mq3n5s7dat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "riva.vincent.outerspacemanager",
+            "certificate_hash": "d4f528104709d2aef2ae21ef9b4d40180c361310"
+          }
+        },
+        {
+          "client_id": "639076744093-nc7e5fldspqsjc4ga1ectu6hg6vu7m4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl60aRSXStP_rtWtqNDDAMXwoyiJaOXgc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639076744093-nc7e5fldspqsjc4ga1ectu6hg6vu7m4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

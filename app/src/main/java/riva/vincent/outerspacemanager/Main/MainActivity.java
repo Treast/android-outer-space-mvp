@@ -85,8 +85,8 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
         pointsTextView.setText("Points: " + points.toString());
         gasTextView.setText("Gas: " + String.valueOf(Math.round(gas)));
         mineralsTextView.setText("Minerals: " + String.valueOf(Math.round(minerals)));
-        gasModifierTextView.setText("Gas: " + String.valueOf(Math.round(gas)) + "/h");
-        mineralsModifierTextView.setText("Minerals : " + String.valueOf(Math.round(minerals)) + "/h");
+        gasModifierTextView.setText("Gas: " + gasModifier + "/h");
+        mineralsModifierTextView.setText("Minerals : " + mineralsModifier + "/h");
     }
 
     @Override
