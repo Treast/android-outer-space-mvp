@@ -66,5 +66,9 @@
             android:name="riva.vincent.outerspacemanager.Search.SearchActivity"
             android:label="Search" >
         </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.galaxy.GalaxyActivity"
+            android:label="Galaxy" >
+        </activity>
     </application>
 </manifest>

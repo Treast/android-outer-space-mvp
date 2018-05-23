@@ -25,6 +25,7 @@ import riva.vincent.outerspacemanager.Fleet.FleetActivity;
 import riva.vincent.outerspacemanager.R;
 import riva.vincent.outerspacemanager.Search.SearchActivity;
 import riva.vincent.outerspacemanager.Shipyard.ShipyardActivity;
+import riva.vincent.outerspacemanager.galaxy.GalaxyActivity;
 
 /**
  * Created by treast on 27/03/2018.
@@ -45,6 +46,7 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
     private Button fleetButton;
     private Button shipyardButton;
     private Button searchButton;
+    private Button galaxyButton;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,11 +69,13 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
         fleetButton = findViewById(R.id.fleetButton);
         shipyardButton = findViewById(R.id.shipyardButton);
         searchButton = findViewById(R.id.researchButton);
+        galaxyButton = findViewById(R.id.galaxyButton);
 
         buildingButton.setOnClickListener(this);
         fleetButton.setOnClickListener(this);
         shipyardButton.setOnClickListener(this);
         searchButton.setOnClickListener(this);
+        galaxyButton.setOnClickListener(this);
     }
 
     private String getToken() {
@@ -112,6 +116,10 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
             case R.id.researchButton:
                 Intent intentSearch = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(intentSearch);
+                break;
+            case R.id.galaxyButton:
+                Intent intentGalaxy = new Intent(getApplicationContext(), GalaxyActivity.class);
+                startActivity(intentGalaxy);
                 break;
         }
     }

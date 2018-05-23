@@ -23,8 +23,7 @@
     <LinearLayout
         android:id="@+id/gas"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
@@ -67,53 +66,60 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/overviewButton"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Vue générale"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/buildingButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Bâtiments"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/overviewButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:text="Vue générale"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/fleetButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Flotte"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/buildingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Bâtiments"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/researchButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Recherches"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/fleetButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Flotte"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/shipyardButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Chantier spatial"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/shipyardButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Chantier spatial"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/galaxyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Galaxie"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/researchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Recherches"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/galaxyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Galaxie"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 </LinearLayout>

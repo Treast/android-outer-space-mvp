@@ -22,6 +22,7 @@ import riva.vincent.outerspacemanager.Api.Responses.SearchListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipAttackResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.UsersGetResponse;
+import riva.vincent.outerspacemanager.Api.Responses.UsersListResponse;
 
 /**
  * Created by vriva on 26/03/2018.
@@ -36,6 +37,9 @@ public interface ApiService {
 
     @GET("api/v1/users/get")
     Call<UsersGetResponse> getCurrentUser(@Header("x-access-token") String token);
+
+    @GET("api/v1/users/0/20")
+    Call<UsersListResponse> getListUsers(@Header("x-access-token") String token);
 
     @GET("api/v1/buildings/list")
     Call<BuildingListResponse> getBuildingList(@Header("x-access-token") String token);
