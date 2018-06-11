@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -157,6 +158,10 @@ public class ShipyardActivity extends Activity implements ShipyardView {
                         .setCancelable(false)
                         .setPositiveButton("MEURS !",new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+
+                                final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.cena);
+                                mp.start();
+                                
                                 List<ShipAmount> ships = new ArrayList<>();
                                 for(int i = 0; i < buildingList.size(); i++) {
                                     Ship ship = buildingList.get(i);

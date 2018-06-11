@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
 
@@ -11,6 +12,15 @@
         android:text="Bâtiments"
         android:textAlignment="center"
         android:textSize="30sp" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        app:lottie_rawRes="@raw/spacecraft"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/buildingFragmentRecyclerView"

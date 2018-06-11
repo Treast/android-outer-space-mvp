@@ -1,17 +1,24 @@
 package riva.vincent.outerspacemanager.Main;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import co.revely.gradient.RevelyGradient;
+import co.revely.gradient.drawables.Gradient;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,6 +64,25 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 360f);
+        valueAnimator.setDuration(15000);
+        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        valueAnimator.setInterpolator(new LinearInterpolator());
+
+        RevelyGradient
+                .linear()
+                .colors(new int[] {Color.parseColor("#00076f"), Color.parseColor("#44008b"), Color.parseColor("#9f45b0"), Color.parseColor("#e54ed0")})
+                .animate(valueAnimator, new Function2<ValueAnimator, Gradient, Unit>() {
+
+                    @Override
+                    public Unit invoke(ValueAnimator valueAnimator, Gradient gradient) {
+                        gradient.setAngle((float)valueAnimator.getAnimatedValue());
+                        return null;
+                    }
+                })
+                .onBackgroundOf(findViewById(R.id.scrollView));
+        valueAnimator.start();
 
         presenter = new MainPresenterImpl(this);
 

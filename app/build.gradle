@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.airbnb.android:lottie:2.5.4'
+    compile 'co.revely:gradient:1.0.1'
 }
 
 

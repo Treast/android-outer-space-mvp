@@ -1,142 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/usernameTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/pointsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Points : 0"
-        android:textAlignment="center" />
-
-    <LinearLayout
-        android:id="@+id/gas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/mineralsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Minerals: 0"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/gasTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Gas: 0"
-            android:textAlignment="center" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/mineralsModifierTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Minerals: 0"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/gasModifierTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Gas: 0"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        app:lottie_rawRes="@raw/wow"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true" />
+    android:id="@+id/scrollView">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/overviewButton"
+        <TextView
+            android:id="@+id/usernameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@android:color/transparent"
-            android:text="Vue générale"
-            android:textSize="18sp" />
+            android:text="Username"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"/>
 
-        <Button
-            android:id="@+id/buildingButton"
+        <TextView
+            android:id="@+id/pointsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Bâtiments"
-            android:textSize="18sp" />
+            android:text="Points : 0"
+            android:textAlignment="center" />
 
-        <Button
-            android:id="@+id/fleetButton"
+        <LinearLayout
+            android:id="@+id/gas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Flotte"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/shipyardButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Chantier spatial"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/mineralsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minerals: 0"
+                android:textAlignment="center" />
 
-        <Button
-            android:id="@+id/researchButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Recherches"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/gasTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gas: 0"
+                android:textAlignment="center" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/galaxyButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Galaxie"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/reportButton"
+            <TextView
+                android:id="@+id/mineralsModifierTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minerals: 0"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/gasModifierTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gas: 0"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            app:lottie_rawRes="@raw/wow"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Rapports"
-            android:textSize="18sp" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/overviewButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                android:text="Vue générale"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buildingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Bâtiments"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/fleetButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Flotte"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/shipyardButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Chantier spatial"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/researchButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Recherches"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/galaxyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Galaxie"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/reportButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Rapports"
+                android:textSize="18sp" />
+        </LinearLayout>
+
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
