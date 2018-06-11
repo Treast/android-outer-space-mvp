@@ -73,7 +73,6 @@ public class ShipyardActivity extends Activity implements ShipyardView {
                 final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                         ShipyardActivity.this);
 
-
                 final Ship building = buildingList.get(position);
                 // set title
                 alertDialogBuilder.setTitle("Construire");
@@ -161,7 +160,7 @@ public class ShipyardActivity extends Activity implements ShipyardView {
 
                                 final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.cena);
                                 mp.start();
-                                
+
                                 List<ShipAmount> ships = new ArrayList<>();
                                 for(int i = 0; i < buildingList.size(); i++) {
                                     Ship ship = buildingList.get(i);

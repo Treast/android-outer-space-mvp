@@ -50,7 +50,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
             attackerTextView = itemView.findViewById(R.id.attackerTextView);
             defenderTextView = itemView.findViewById(R.id.defenderTextView);
 
-            itemView.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
         }
 
         @Override

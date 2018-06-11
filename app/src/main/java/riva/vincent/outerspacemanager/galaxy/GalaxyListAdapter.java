@@ -31,7 +31,7 @@ public class GalaxyListAdapter extends RecyclerView.Adapter<GalaxyListAdapter.Vi
             usernameTextView = itemView.findViewById(R.id.textViewUsername);
             pointsTextView = itemView.findViewById(R.id.textViewPoints);
 
-            itemView.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
         }
 
         @Override
