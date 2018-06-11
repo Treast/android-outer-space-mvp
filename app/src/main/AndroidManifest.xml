@@ -70,5 +70,9 @@
             android:name="riva.vincent.outerspacemanager.galaxy.GalaxyActivity"
             android:label="Galaxy" >
         </activity>
+        <activity
+            android:name="riva.vincent.outerspacemanager.report.ReportActivity"
+            android:label="Report" >
+        </activity>
     </application>
 </manifest>

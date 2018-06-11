@@ -11,6 +11,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import riva.vincent.outerspacemanager.Api.Api;
 import riva.vincent.outerspacemanager.Api.Requests.DeviceAddRequest;
+import riva.vincent.outerspacemanager.Api.Responses.DeviceAddResponse;
 import riva.vincent.outerspacemanager.Api.Responses.SearchCreateResponse;
 
 /**
@@ -27,16 +28,16 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
         SharedPreferences settings = getSharedPreferences("OuterSpaceManager", 0);
         String token = settings.getString("token", "");
 
-        Call<SearchCreateResponse> deviceAdd = Api.getInstance().deviceAdd(token, new DeviceAddRequest(refreshedToken));
+        Call<DeviceAddResponse> deviceAdd = Api.getInstance().deviceAdd(token, new DeviceAddRequest(refreshedToken));
 
-        deviceAdd.enqueue(new Callback<SearchCreateResponse>() {
+        deviceAdd.enqueue(new Callback<DeviceAddResponse>() {
             @Override
-            public void onResponse(Call<SearchCreateResponse> call, Response<SearchCreateResponse> response) {
+            public void onResponse(Call<DeviceAddResponse> call, Response<DeviceAddResponse> response) {
                 Log.d("OuterSpace", "currentDeviceToken: " + refreshedToken);
             }
 
             @Override
-            public void onFailure(Call<SearchCreateResponse> call, Throwable t) {
+            public void onFailure(Call<DeviceAddResponse> call, Throwable t) {
                 Log.d("OuterSpace", "onFailure: " + t);
             }
         });

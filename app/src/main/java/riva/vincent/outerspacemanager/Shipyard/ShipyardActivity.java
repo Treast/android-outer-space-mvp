@@ -3,6 +3,7 @@ package riva.vincent.outerspacemanager.Shipyard;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -38,11 +39,20 @@ public class ShipyardActivity extends Activity implements ShipyardView {
     private ShipyardListAdapter adapter;
     private Button attackButton;
 
+    private double gas;
+    private double minerals;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_shipyard);
+
+        Intent intent = getIntent();
+        gas = intent.getDoubleExtra("gas", 0);
+        minerals = intent.getDoubleExtra("minerals", 0);
+        Log.d("OuterSpace", "gas: " + gas);
+        Log.d("OuterSpace", "minerals: " + minerals);
 
         buildingList = new ArrayList<>();
 
@@ -71,7 +81,17 @@ public class ShipyardActivity extends Activity implements ShipyardView {
 
                 final SeekBar seek = new SeekBar(getApplicationContext());
                 final TextView textView = new TextView(getApplicationContext());
-                seek.setMax(100);
+
+                double numberWithGas = Math.floor(gas / building.getGasCost());
+                double numberWithMinerals = Math.floor(minerals / building.getMineralCost());
+
+                int numberMaxShips = (int)Math.min(numberWithGas, numberWithMinerals);
+
+                seek.setMax(numberMaxShips);
+                Log.d("OuterSpace", "maxShip: " + numberMaxShips);
+                Log.d("OuterSpace", "maxShipGas: " + numberWithGas);
+                Log.d("OuterSpace", "maxShipMinerals: " + numberWithMinerals);
+                seek.setMinimumHeight(20);
                 textView.setPadding(70, 10, 70, 10);
 
                 seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

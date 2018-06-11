@@ -15,8 +15,10 @@ import riva.vincent.outerspacemanager.Api.Responses.AuthCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.AuthLoginResponse;
 import riva.vincent.outerspacemanager.Api.Responses.BuildingCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.BuildingListResponse;
+import riva.vincent.outerspacemanager.Api.Responses.DeviceAddResponse;
 import riva.vincent.outerspacemanager.Api.Responses.FleetListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.MyShipsResponse;
+import riva.vincent.outerspacemanager.Api.Responses.ReportGetResponse;
 import riva.vincent.outerspacemanager.Api.Responses.SearchCreateResponse;
 import riva.vincent.outerspacemanager.Api.Responses.SearchListResponse;
 import riva.vincent.outerspacemanager.Api.Responses.ShipAttackResponse;
@@ -67,5 +69,8 @@ public interface ApiService {
     Call<ShipAttackResponse> shipAttack(@Header("x-access-token") String token, @Path("userName") String userName, @Body ShipAttackRequest shipAttackRequest);
 
     @POST("api/v1/devices/add")
-    Call<SearchCreateResponse> deviceAdd(@Header("x-access-token") String token, @Body DeviceAddRequest deviceAddRequest);
+    Call<DeviceAddResponse> deviceAdd(@Header("x-access-token") String token, @Body DeviceAddRequest deviceAddRequest);
+
+    @GET("api/v1/reports/0/20")
+    Call<ReportGetResponse> getReports(@Header("x-access-token") String token);
 }

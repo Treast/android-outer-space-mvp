@@ -26,6 +26,7 @@ import riva.vincent.outerspacemanager.R;
 import riva.vincent.outerspacemanager.Search.SearchActivity;
 import riva.vincent.outerspacemanager.Shipyard.ShipyardActivity;
 import riva.vincent.outerspacemanager.galaxy.GalaxyActivity;
+import riva.vincent.outerspacemanager.report.ReportActivity;
 
 /**
  * Created by treast on 27/03/2018.
@@ -47,6 +48,10 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
     private Button shipyardButton;
     private Button searchButton;
     private Button galaxyButton;
+    private Button reportButton;
+
+    private double gas;
+    private double minerals;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,12 +75,14 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
         shipyardButton = findViewById(R.id.shipyardButton);
         searchButton = findViewById(R.id.researchButton);
         galaxyButton = findViewById(R.id.galaxyButton);
+        reportButton = findViewById(R.id.reportButton);
 
         buildingButton.setOnClickListener(this);
         fleetButton.setOnClickListener(this);
         shipyardButton.setOnClickListener(this);
         searchButton.setOnClickListener(this);
         galaxyButton.setOnClickListener(this);
+        reportButton.setOnClickListener(this);
     }
 
     private String getToken() {
@@ -91,6 +98,9 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
         mineralsTextView.setText("Minerals: " + String.valueOf(Math.round(minerals)));
         gasModifierTextView.setText("Gas: " + gasModifier + "/h");
         mineralsModifierTextView.setText("Minerals : " + mineralsModifier + "/h");
+
+        this.minerals = minerals;
+        this.gas = gas;
     }
 
     @Override
@@ -111,6 +121,8 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
                 break;
             case R.id.shipyardButton:
                 Intent intentFleet = new Intent(getApplicationContext(), ShipyardActivity.class);
+                intentFleet.putExtra("gas", gas);
+                intentFleet.putExtra("minerals", minerals);
                 startActivity(intentFleet);
                 break;
             case R.id.researchButton:
@@ -120,6 +132,10 @@ public class MainActivity extends Activity implements MainView, View.OnClickList
             case R.id.galaxyButton:
                 Intent intentGalaxy = new Intent(getApplicationContext(), GalaxyActivity.class);
                 startActivity(intentGalaxy);
+                break;
+            case R.id.reportButton:
+                Intent intentReport = new Intent(getApplicationContext(), ReportActivity.class);
+                startActivity(intentReport);
                 break;
         }
     }
